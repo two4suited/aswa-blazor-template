@@ -1,7 +1,10 @@
-﻿@inherits LayoutComponentBase
+﻿@using global::Client.Authentication
+@inherits LayoutComponentBase
 
 <div class="sidebar">
-    <NavMenu />
+    <AuthorizeView>
+        <NavMenu/>
+    </AuthorizeView>
 </div>
 
 <div class="main">

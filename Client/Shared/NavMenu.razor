@@ -5,7 +5,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 </div>
-<AuthorizeView Policy="@Policies.IsUser">
+
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
         <li class="nav-item px-3">
@@ -25,7 +25,6 @@
         </li>
     </ul>
 </div>
-</AuthorizeView>
 @code {
     private bool collapseNavMenu = true;
 
