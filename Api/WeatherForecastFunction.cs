@@ -1,5 +1,7 @@
 using System;
 using System.Linq;
+using System.Threading.Tasks;
+using Api;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -7,11 +9,18 @@ using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
 
 using BlazorApp.Shared;
+using Microsoft.Extensions.Options;
 
 namespace BlazorApp.Api
 {
-    public static class WeatherForecastFunction
+    public class WeatherForecastFunction
     {
+        private readonly IOptions<FunctionConfig> _config;
+
+        public WeatherForecastFunction(IOptions<FunctionConfig> config)
+        {
+            _config = config;
+        }
         private static string GetSummary(int temp)
         {
             var summary = "Mild";
@@ -33,7 +42,7 @@ namespace BlazorApp.Api
         }
 
         [FunctionName("WeatherForecast")]
-        public static IActionResult Run(
+        public async Task<IActionResult>  Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
             ILogger log)
         {

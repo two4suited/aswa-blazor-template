@@ -1,4 +1,7 @@
 ﻿@page "/counter"
+@using Microsoft.AspNetCore.Authorization
+@using global::Client.Authentication
+@attribute [Authorize(Policy = Policies.IsAdmin)]
 
 <h1>Counter</h1>
 

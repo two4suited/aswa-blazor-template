@@ -1,9 +1,39 @@
 {
   "routes": [
     {
+      "route": "/api/*",
+      "allowedRoles": ["user"]
+    },
+    {
+      "route": "/logout",
+      "server": "/.auth/logout"
+    },
+    {
+      "route": "/.auth/login/twitter",
+      "statusCode": "404"
+    },
+    {
+      "route": "/.auth/login/aad",
+      "statusCode": "404"
+    },
+    {
+      "route": "/.auth/login/facebook",
+      "statusCode": "404"
+    },
+    {
+      "route": "/.auth/login/github",
+      "statusCode": "404"
+    },
+    {
       "route": "/*",
       "serve": "/index.html",
       "statusCode": 200
-    }
-  ]
+    }],
+    "platformErrorOverrides":[      
+      {
+        "errorType": "Unauthenticated",
+        "statusCode": "302",
+        "serve": "/login"
+      }
+    ]
 }

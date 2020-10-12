@@ -1,10 +1,11 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
+﻿@using global::Client.Authentication
+<div class="top-row pl-4 navbar navbar-dark">
     <a class="navbar-brand" href="">Blazor Starter</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
 </div>
-
+<AuthorizeView Policy="@Policies.IsUser">
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
     <ul class="nav flex-column">
         <li class="nav-item px-3">
@@ -24,7 +25,7 @@
         </li>
     </ul>
 </div>
-
+</AuthorizeView>
 @code {
     private bool collapseNavMenu = true;
 

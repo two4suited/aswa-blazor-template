@@ -1,0 +1,13 @@
+{
+  "clientPrincipal": {
+    "identityProvider": "google",
+    "userId": "test123",
+    "userDetails": "brian",
+    "userRoles": [
+      "anonymous",
+      "authenticated",
+      "user",
+      "admin"
+    ]
+  }
+}
