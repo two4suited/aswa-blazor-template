@@ -16,6 +16,15 @@ Once you clone the project, open the solution in [Visual Studio](https://visuals
 
 _Note: If you're using the Azure Functions CLI tools, refer to [the documentation](https://docs.microsoft.com/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash) on how to enable CORS._
 
+### Security Setup
+
+For local development there is a [file](https://github.com/two4suited/aswa-blazor-template/blob/main/Client/wwwroot/sample-data/me.json) that contains an example claim.  
+
+The application leverages two main roles _admin_ and _user_.  
+You will need to set this up in the Azure Static Web Site in the Azure Portal, when inviting users.  
+
+These roles get mapped to two policies(Admin, User) that are specified in a [static class](https://github.com/two4suited/aswa-blazor-template/blob/main/Client/Authentication/Policies.cs) and can be used within the **Client** Project
+
 ## Template Structure
 
 * **Client**: The Blazor WebAssembly sample application
