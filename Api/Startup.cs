@@ -11,8 +11,7 @@ namespace Api.Functions
     public class Startup : FunctionsStartup
     {
         public override void Configure(IFunctionsHostBuilder builder)
-        {
-            var connectionString = Environment.GetEnvironmentVariable("SqlConnectionString");
+        {          
             builder.Services.AddOptions<FunctionConfig>()
                 .Configure<IConfiguration>((settings, configuration) =>
                 {
