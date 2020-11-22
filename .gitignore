@@ -3,6 +3,12 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+#
+.DS_Store
+__blobstorage__/*
+__queuestorage__/*
+__azurite*
+
 # User-specific files
 *.rsuser
 *.suo
@@ -340,3 +346,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+__blobstorage__/7efb071c-0114-4aa8-871c-d1fae652c4c5
